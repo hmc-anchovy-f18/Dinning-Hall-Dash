@@ -1,0 +1,96 @@
+#OBJS specifies which files to compile as part of the project
+OBJS = main.cpp
+
+#CC specifies which compiler we're using
+CC = clang++
+
+#COMPILER_FLAGS specifies the additional compilation options we're using
+# -w suppresses all warnings
+COMPILER_FLAGS = -Wall -g
+
+#LINKER_FLAGS specifies the libraries we're linking against
+LINKER_FLAGS = -lSDL2 -lSDL2_image
+
+#OBJ_NAME specifies the name of our exectuable
+OBJ_NAME = main
+
+#This is the target that compiles our executable
+# all : $(OBJS)
+# 	$(CC) $(OBJS) $(COMPILER_FLAGS) $(LINKER_FLAGS) -o $(OBJ_NAME)
+
+main: main.o CharacterSelect.o EndScreen.o GameState.o LevelSelect.o MainMenu.o Map.o PlayerOne.o PlayerTwo.o PowerUp.o ScoreBoard.o Sound.o SpeedDown.o SpeedUp.o StrengthUp.o Vehicle.o
+	$(CC) $(COMPILER_FLAGS) $(LINKER_FLAGS) -o $(OBJ_NAME) main.o CharacterSelect.o EndScreen.o GameState.o LevelSelect.o MainMenu.o Map.o PlayerOne.o PlayerTwo.o PowerUp.o ScoreBoard.o Sound.o SpeedDown.o SpeedUp.o StrengthUp.o Vehicle.o
+
+main.o: main.cpp CharacterSelect.hpp EndScreen.hpp GameState.hpp LevelSelect.hpp MainMenu.hpp Map.hpp PlayerOne.hpp PlayerTwo.hpp PowerUp.hpp ScoreBoard.hpp Sound.hpp SpeedDown.hpp SpeedUp.hpp StrengthUp.hpp Vehicle.hpp
+	$(CC) $(COMPILER_FLAGS) -c main.cpp
+
+CharacterSelect.o: CharacterSelect.cpp CharacterSelect.hpp
+	$(CC) -c CharacterSelect.cpp
+
+EndScreen.o: EndScreen.cpp EndScreen.hpp	
+	$(CC) -c EndScreen.cpp
+
+GameState.o: GameState.cpp GameState.hpp
+	$(CC) -c GameState.cpp
+
+LevelSelect.o: LevelSelect.cpp LevelSelect.hpp
+	$(CC) -c LevelSelect.cpp
+
+MainMenu.o: MainMenu.cpp MainMenu.hpp
+	$(CC) -c MainMenu.cpp
+
+Map.o: Map.cpp Map.hpp
+	$(CC) -c Map.cpp
+
+PlayerOne.o: PlayerOne.cpp PlayerOne.hpp
+	$(CC) -c PlayerOne.cpp
+
+PlayerTwo.o: PlayerTwo.cpp PlayerTwo.hpp
+	$(CC) -c PlayerTwo.cpp
+
+PowerUp.o: PowerUp.cpp PowerUp.hpp
+	$(CC) -c PowerUp.cpp
+
+ScoreBoard.o: ScoreBoard.cpp ScoreBoard.hpp
+	$(CC) -c ScoreBoard.cpp
+
+Sound.o: Sound.cpp Sound.hpp
+	$(CC) -c Sound.cpp
+
+SpeedDown.o: SpeedDown.cpp SpeedDown.hpp
+	$(CC) -c SpeedDown.cpp
+
+SpeedUp.o: SpeedUp.cpp SpeedUp.hpp
+	$(CC) -c SpeedUp.cpp
+
+StrengthUp.o: StrengthUp.cpp StrengthUp.hpp
+	$(CC) -c StrengthUp.cpp
+
+Vehicle.o: Vehicle.cpp Vehicle.hpp
+	$(CC) -c Vehicle.cpp
+
+
+# Rect.o: Rect.cpp Rect.hpp Shape.hpp
+# 	$(CC) -c Rect.cpp
+
+# Line.o: Line.cpp Line.hpp Shape.hpp
+# 	$(CC) -c Line.cpp
+
+# Point.o: Point.cpp Point.hpp
+# 	$(CC) -c Point.cpp
+
+# Color.o: Color.cpp Color.hpp 
+# 	$(CC) -c Color.cpp
+
+# Shape.o: Shape.cpp Shape.hpp Color.hpp 
+# 	$(CC) -c Shape.cpp
+
+# Stack.o: Stack.cpp Stack.hpp Shape.hpp Color.hpp
+# 	$(CC) -c Stack.cpp
+
+clean:
+	rm -rf main *.o
+
+magic:
+	make clean
+	make main
