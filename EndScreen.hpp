@@ -6,9 +6,6 @@
 #include <SDL.h>
 #endif
 
-#include "string"
-
-using namespace std;
 class EndScreen
 {
 private:

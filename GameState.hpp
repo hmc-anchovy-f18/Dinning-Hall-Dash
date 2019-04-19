@@ -6,12 +6,9 @@
 #include <SDL.h>
 #endif
 
-#include "Map.hpp"
-#include "Sound.hpp"
 #include "PlayerOne.hpp"
 #include "PlayerTwo.hpp"
-#include "PowerUp.hpp"
-#include "MainMenu.hpp"
+#include "ScoreBoard.hpp"
 
 class GameState
 {

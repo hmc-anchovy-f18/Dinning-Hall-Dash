@@ -6,6 +6,9 @@
 #include <SDL.h>
 #endif
 
+#include "PlayerOne.hpp"
+#include "PlayerTwo.hpp"
+
 class Map
 {
 private:

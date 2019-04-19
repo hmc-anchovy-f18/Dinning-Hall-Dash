@@ -18,10 +18,10 @@ OBJ_NAME = main
 # all : $(OBJS)
 # 	$(CC) $(OBJS) $(COMPILER_FLAGS) $(LINKER_FLAGS) -o $(OBJ_NAME)
 
-main: main.o CharacterSelect.o EndScreen.o GameState.o LevelSelect.o MainMenu.o Map.o PlayerOne.o PlayerTwo.o PowerUp.o ScoreBoard.o Sound.o SpeedDown.o SpeedUp.o StrengthUp.o Vehicle.o
-	$(CC) $(COMPILER_FLAGS) $(LINKER_FLAGS) -o $(OBJ_NAME) main.o CharacterSelect.o EndScreen.o GameState.o LevelSelect.o MainMenu.o Map.o PlayerOne.o PlayerTwo.o PowerUp.o ScoreBoard.o Sound.o SpeedDown.o SpeedUp.o StrengthUp.o Vehicle.o
+main: main.o CharacterSelect.o EndScreen.o GameState.o LevelSelect.o MainMenu.o Map.o PlayerOne.o PlayerTwo.o PowerUp.o ScoreBoard.o Sound.o SpeedDown.o SpeedUp.o StrengthUp.o Vehicle.o Screen.o
+	$(CC) $(COMPILER_FLAGS) $(LINKER_FLAGS) -o $(OBJ_NAME) main.o CharacterSelect.o EndScreen.o GameState.o LevelSelect.o MainMenu.o Map.o PlayerOne.o PlayerTwo.o PowerUp.o ScoreBoard.o Sound.o SpeedDown.o SpeedUp.o StrengthUp.o Vehicle.o Screen.o
 
-main.o: main.cpp CharacterSelect.hpp EndScreen.hpp GameState.hpp LevelSelect.hpp MainMenu.hpp Map.hpp PlayerOne.hpp PlayerTwo.hpp PowerUp.hpp ScoreBoard.hpp Sound.hpp SpeedDown.hpp SpeedUp.hpp StrengthUp.hpp Vehicle.hpp
+main.o: main.cpp CharacterSelect.hpp EndScreen.hpp GameState.hpp LevelSelect.hpp MainMenu.hpp Map.hpp PlayerOne.hpp PlayerTwo.hpp PowerUp.hpp ScoreBoard.hpp Sound.hpp SpeedDown.hpp SpeedUp.hpp StrengthUp.hpp Vehicle.hpp Screen.hpp
 	$(CC) $(COMPILER_FLAGS) -c main.cpp
 
 CharacterSelect.o: CharacterSelect.cpp CharacterSelect.hpp Vehicle.hpp
@@ -30,7 +30,7 @@ CharacterSelect.o: CharacterSelect.cpp CharacterSelect.hpp Vehicle.hpp
 EndScreen.o: EndScreen.cpp EndScreen.hpp
 	$(CC) -c EndScreen.cpp
 
-GameState.o: GameState.cpp GameState.hpp PlayerOne.hpp PlayerTwo.hpp LevelSelect.hpp ScoreBoard.hpp
+GameState.o: GameState.cpp GameState.hpp PlayerOne.hpp PlayerTwo.hpp ScoreBoard.hpp
 	$(CC) -c GameState.cpp
 
 LevelSelect.o: LevelSelect.cpp LevelSelect.hpp
@@ -39,16 +39,16 @@ LevelSelect.o: LevelSelect.cpp LevelSelect.hpp
 MainMenu.o: MainMenu.cpp MainMenu.hpp 
 	$(CC) -c MainMenu.cpp
 
-Screens.o: Screens.cpp Screens.hpp MainMenu.hpp LevelSelect.hpp CharacterSelect.hpp EndScreen.hpp Map.hpp
-	$(CC) -c Screens.cpp
+Screen.o: Screen.cpp Screen.hpp MainMenu.hpp LevelSelect.hpp CharacterSelect.hpp EndScreen.hpp Map.hpp
+	$(CC) -c Screen.cpp
 
 Map.o: Map.cpp Map.hpp PlayerOne.hpp PlayerTwo.hpp
 	$(CC) -c Map.cpp
 
-PlayerOne.o: PlayerOne.cpp PlayerOne.hpp PowerUp.hpp PowerUp.hpp
+PlayerOne.o: PlayerOne.cpp PlayerOne.hpp PowerUp.hpp 
 	$(CC) -c PlayerOne.cpp
 
-PlayerTwo.o: PlayerTwo.cpp PlayerTwo.hpp PowerUp.hpp PowerUp.hpp
+PlayerTwo.o: PlayerTwo.cpp PlayerTwo.hpp PowerUp.hpp 
 	$(CC) -c PlayerTwo.cpp
 
 PowerUp.o: PowerUp.cpp PowerUp.hpp SpeedDown.hpp SpeedUp.hpp StrengthUp.hpp

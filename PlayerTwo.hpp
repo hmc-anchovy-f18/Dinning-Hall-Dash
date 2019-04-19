@@ -6,6 +6,9 @@
 #include <SDL.h>
 #endif
 
+#include "Vehicle.hpp"
+#include "PowerUp.hpp"
+
 class PlayerTwo
 {
 private:

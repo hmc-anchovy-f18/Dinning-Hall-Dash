@@ -6,6 +6,7 @@
 #include <SDL.h>
 #endif
 #undef main //maybe needs to go above?
+#include "string"
 #include "CharacterSelect.hpp"
 #include "EndScreen.hpp"
 #include "GameState.hpp"
@@ -22,10 +23,10 @@
 #include "StrengthUp.hpp"
 #include "Vehicle.hpp"
 
+using namespace std;
+
 //The window we'll be rendering to
 SDL_Window* gWindow = NULL;
-//comment
-//fdsaf
 
 //The surface contained by the window
 SDL_Surface* gScreenSurface = NULL;
