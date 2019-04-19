@@ -176,9 +176,9 @@ int main(int argc, const char* argv[])
 					//Apply the image stretched
 					gStretchedSurface = loadSurface("C:/Users/Daniela/Desktop/DHD/MainScreen.bmp");
 
-					Screen* screen = new Screen(gStretchedSurface, gScreenSurface, &stretchRect);
+					Screen* screen = new Screen(gStretchedSurface, gScreenSurface, stretchRect);
 
-					//screen->renderScreen();
+					screen->renderScreen();
 
 					//SDL_BlitScaled(gStretchedSurface, NULL, gScreenSurface, &stretchRect);
 

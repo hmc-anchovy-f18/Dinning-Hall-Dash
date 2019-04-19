@@ -7,6 +7,8 @@
 #include <SDL.h>
 #endif
 
+#include "Screen.hpp"
+
 class MainMenu : Screen
 {
 private:
@@ -16,7 +18,7 @@ private:
 
 public:
    // LevelSelect level();
-    string instructions();
+    //string instructions();
 	//Constructor
 	MainMenu();
 	//Destructor
