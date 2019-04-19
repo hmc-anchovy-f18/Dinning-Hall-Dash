@@ -14,12 +14,8 @@ Screen::~Screen() {
 	//TODO
 }
 
-int renderScreen() {
-
-}
-
-void testing() {
-
+void renderScreen() {
+	return 0;
 }
 
 /*
