@@ -51,7 +51,7 @@ PlayerOne.o: PlayerOne.cpp PlayerOne.hpp PowerUp.hpp
 PlayerTwo.o: PlayerTwo.cpp PlayerTwo.hpp PowerUp.hpp 
 	$(CC) -c PlayerTwo.cpp
 
-PowerUp.o: PowerUp.cpp PowerUp.hpp SpeedDown.hpp SpeedUp.hpp StrengthUp.hpp
+PowerUp.o: PowerUp.cpp PowerUp.hpp
 	$(CC) -c PowerUp.cpp
 
 ScoreBoard.o: ScoreBoard.cpp ScoreBoard.hpp Sound.hpp
