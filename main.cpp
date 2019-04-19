@@ -22,6 +22,7 @@
 #include "SpeedUp.hpp"
 #include "StrengthUp.hpp"
 #include "Vehicle.hpp"
+#include "Screen.hpp"
 
 using namespace std;
 
@@ -175,7 +176,11 @@ int main(int argc, const char* argv[])
 					//Apply the image stretched
 					gStretchedSurface = loadSurface("C:/Users/Daniela/Desktop/DHD/MainScreen.bmp");
 
-					SDL_BlitScaled(gStretchedSurface, NULL, gScreenSurface, &stretchRect);
+					Screen* screen = new Screen(gStretchedSurface, gScreenSurface, &stretchRect);
+
+					//screen->renderScreen();
+
+					//SDL_BlitScaled(gStretchedSurface, NULL, gScreenSurface, &stretchRect);
 
 					//Apply the image without stretching
 					//SDL_BlitSurface(gHelloWorld, NULL, gScreenSurface, NULL);
