@@ -10,7 +10,7 @@
 #include "LevelSelect.hpp"
 #include "string"
 
-class MainMenu
+class MainMenu : Screen
 {
 private:
 	//Attributes
@@ -18,7 +18,7 @@ private:
     bool instructions;
 
 public:
-    LevelSelect level();
+   // LevelSelect level();
     string instructions();
 	//Constructor
 	MainMenu();

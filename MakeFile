@@ -24,49 +24,52 @@ main: main.o CharacterSelect.o EndScreen.o GameState.o LevelSelect.o MainMenu.o 
 main.o: main.cpp CharacterSelect.hpp EndScreen.hpp GameState.hpp LevelSelect.hpp MainMenu.hpp Map.hpp PlayerOne.hpp PlayerTwo.hpp PowerUp.hpp ScoreBoard.hpp Sound.hpp SpeedDown.hpp SpeedUp.hpp StrengthUp.hpp Vehicle.hpp
 	$(CC) $(COMPILER_FLAGS) -c main.cpp
 
-CharacterSelect.o: CharacterSelect.cpp CharacterSelect.hpp
+CharacterSelect.o: CharacterSelect.cpp CharacterSelect.hpp Vehicle.hpp
 	$(CC) -c CharacterSelect.cpp
 
-EndScreen.o: EndScreen.cpp EndScreen.hpp	
+EndScreen.o: EndScreen.cpp EndScreen.hpp
 	$(CC) -c EndScreen.cpp
 
-GameState.o: GameState.cpp GameState.hpp
+GameState.o: GameState.cpp GameState.hpp PlayerOne.hpp PlayerTwo.hpp LevelSelect.hpp ScoreBoard.hpp
 	$(CC) -c GameState.cpp
 
 LevelSelect.o: LevelSelect.cpp LevelSelect.hpp
 	$(CC) -c LevelSelect.cpp
 
-MainMenu.o: MainMenu.cpp MainMenu.hpp
+MainMenu.o: MainMenu.cpp MainMenu.hpp 
 	$(CC) -c MainMenu.cpp
 
-Map.o: Map.cpp Map.hpp
+Screens.o: Screens.cpp Screens.hpp MainMenu.hpp LevelSelect.hpp CharacterSelect.hpp EndScreen.hpp Map.hpp
+	$(CC) -c Screens.cpp
+
+Map.o: Map.cpp Map.hpp PlayerOne.hpp PlayerTwo.hpp
 	$(CC) -c Map.cpp
 
-PlayerOne.o: PlayerOne.cpp PlayerOne.hpp
+PlayerOne.o: PlayerOne.cpp PlayerOne.hpp PowerUp.hpp PowerUp.hpp
 	$(CC) -c PlayerOne.cpp
 
-PlayerTwo.o: PlayerTwo.cpp PlayerTwo.hpp
+PlayerTwo.o: PlayerTwo.cpp PlayerTwo.hpp PowerUp.hpp PowerUp.hpp
 	$(CC) -c PlayerTwo.cpp
 
-PowerUp.o: PowerUp.cpp PowerUp.hpp
+PowerUp.o: PowerUp.cpp PowerUp.hpp SpeedDown.hpp SpeedUp.hpp StrengthUp.hpp
 	$(CC) -c PowerUp.cpp
 
-ScoreBoard.o: ScoreBoard.cpp ScoreBoard.hpp
+ScoreBoard.o: ScoreBoard.cpp ScoreBoard.hpp Sound.hpp
 	$(CC) -c ScoreBoard.cpp
 
 Sound.o: Sound.cpp Sound.hpp
 	$(CC) -c Sound.cpp
 
-SpeedDown.o: SpeedDown.cpp SpeedDown.hpp
+SpeedDown.o: SpeedDown.cpp SpeedDown.hpp PowerUp.hpp
 	$(CC) -c SpeedDown.cpp
 
-SpeedUp.o: SpeedUp.cpp SpeedUp.hpp
+SpeedUp.o: SpeedUp.cpp SpeedUp.hpp PowerUp.hpp
 	$(CC) -c SpeedUp.cpp
 
-StrengthUp.o: StrengthUp.cpp StrengthUp.hpp
+StrengthUp.o: StrengthUp.cpp StrengthUp.hpp PowerUp.hpp
 	$(CC) -c StrengthUp.cpp
 
-Vehicle.o: Vehicle.cpp Vehicle.hpp
+Vehicle.o: Vehicle.cpp Vehicle.hpp Sound.hpp
 	$(CC) -c Vehicle.cpp
 
 
