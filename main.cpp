@@ -24,6 +24,7 @@
 
 //The window we'll be rendering to
 SDL_Window* gWindow = NULL;
+//comment
 
 //The surface contained by the window
 SDL_Surface* gScreenSurface = NULL;
