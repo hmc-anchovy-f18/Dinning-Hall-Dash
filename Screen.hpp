@@ -23,5 +23,5 @@ public:
 	//Destructor
 	~Screen();
 	//Methods
-	void renderScreen(); //activates powerup effect
+	void renderScreen(); //activates powerup effec
 };
