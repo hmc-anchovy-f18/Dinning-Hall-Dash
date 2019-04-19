@@ -15,26 +15,5 @@ Screen::~Screen() {
 }
 
 void renderScreen() {
-	return 0;
-	//here is a message for riley!!!
+	SDL_BlitScaled(screenTexture, NULL, gScreenSurface, stretchRect);
 }
-
-/*
-class Screen
-{
-private:
-	//Attributes
-	SDL_Texture* screenTexture;
-
-
-public:
-	//Constructor
-	Screen(SDL_Texture*); //each attribute
-	//Destructor
-	~Screen();
-	//Methods
-	void renderScreen(); //activates powerup effect
-};
-
-
-*/
