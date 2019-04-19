@@ -7,6 +7,7 @@
 #endif
 
 #include "Vehicle.hpp"
+#include "PowerUp.hpp"
 
 class PlayerOne
 {

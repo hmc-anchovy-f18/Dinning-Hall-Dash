@@ -6,7 +6,6 @@
 #include <SDL.h>
 #endif
 
-#include "CharacterSelect.hpp"
 
 class LevelSelect
 {

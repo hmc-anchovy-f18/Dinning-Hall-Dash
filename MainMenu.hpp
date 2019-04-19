@@ -7,9 +7,6 @@
 #include <SDL.h>
 #endif
 
-#include "LevelSelect.hpp"
-#include "string"
-
 class MainMenu : Screen
 {
 private:
