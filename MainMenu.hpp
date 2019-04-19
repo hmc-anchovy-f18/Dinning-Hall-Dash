@@ -20,7 +20,8 @@ public:
    // LevelSelect level();
     //string instructions();
 	//Constructor
-	MainMenu();
+	MainMenu(SDL_Surface*, SDL_Surface*, SDL_Rect); //each attribute
+
 	//Destructor
 	~MainMenu();
 	//Methods
