@@ -6,9 +6,25 @@
 #include <SDL.h>
 #endif
 #undef main //maybe needs to go above?
+#include "CharacterSelect.hpp"
+#include "EndScreen.hpp"
+#include "GameState.hpp"
+#include "LevelSelect.hpp"
+#include "MainMenu.hpp"
+#include "Map.hpp" 
+#include "PlayerOne.hpp"
+#include "PlayerTwo.hpp"
+#include "PowerUp.hpp"
+#include "ScoreBoard.hpp"
+#include "Sound.hpp"
+#include "SpeedDown.hpp"
+#include "SpeedUp.hpp"
+#include "StrengthUp.hpp"
+#include "Vehicle.hpp"
 
 //The window we'll be rendering to
 SDL_Window* gWindow = NULL;
+//comment
 
 //The surface contained by the window
 SDL_Surface* gScreenSurface = NULL;
