@@ -14,6 +14,6 @@ Screen::~Screen() {
 	//TODO
 }
 
-void renderScreen() {
-	SDL_BlitScaled(screenTexture, NULL, gScreenSurface, stretchRect);
+void Screen::renderScreen() {
+	SDL_BlitScaled(screenTexture, NULL, gScreenSurface, &stretchRect);
 }
