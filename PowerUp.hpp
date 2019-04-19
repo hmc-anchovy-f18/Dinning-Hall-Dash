@@ -5,8 +5,11 @@
 #else
 #include <SDL.h>
 #endif
-#include "string"
-using namespace std;
+
+#include "SpeedDown.hpp"
+#include "SpeedUp.hpp"
+#include "StrengthUp.hpp"
+
 //controls buffs and debuffs in game
 class PowerUp
 {

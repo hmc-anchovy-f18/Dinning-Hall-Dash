@@ -6,6 +6,8 @@
 #include <SDL.h>
 #endif
 
+#include "Sound.hpp"
+
 //displays score at end of game
 class ScoreBoard
 {
