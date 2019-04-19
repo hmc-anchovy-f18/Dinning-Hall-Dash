@@ -9,7 +9,7 @@
 
 #include "Screen.hpp"
 
-class MainMenu : Screen
+class MainMenu
 {
 private:
 	//Attributes
@@ -20,7 +20,7 @@ public:
    // LevelSelect level();
     //string instructions();
 	//Constructor
-	MainMenu(SDL_Surface*, SDL_Surface*, SDL_Rect); //each attribute
+	MainMenu(); //each attribute
 
 	//Destructor
 	~MainMenu();

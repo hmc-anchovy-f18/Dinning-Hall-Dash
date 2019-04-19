@@ -8,9 +8,8 @@
 
 #include "MainMenu.hpp"
 
-MainMenu::Screen(SDL_Surface* currentTexture, SDL_Surface* screenSurface, SDL_Rect rect) : screenTexture(currentTexture), gScreenSurface(screenSurface), stretchRect(rect)
-{}
+MainMenu::MainMenu() {}
 
-MainMenu::~Screen() {
+MainMenu::~MainMenu() {
 	//TODO
 }
