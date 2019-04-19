@@ -8,7 +8,6 @@
 #endif
 #include <iostream>
 
-#include "Vehicle.hpp"
 #include "PowerUp.hpp"
 //controls buffs and debuffs in game
 class SpeedUp : PowerUp
