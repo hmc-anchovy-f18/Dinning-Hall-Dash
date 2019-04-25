@@ -5,6 +5,7 @@
 #else
 #include <SDL.h>
 #endif
+
 #undef main //maybe needs to go above?
 #include "string"
 #include "CharacterSelect.hpp"
