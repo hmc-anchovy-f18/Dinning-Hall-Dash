@@ -1,7 +1,7 @@
-#include <iostream>
-
 #ifdef __APPLE__
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
+#include <iostream>
 #else
 #include <SDL.h>
 #endif
@@ -24,7 +24,7 @@
 #include "StrengthUp.hpp"
 #include "Vehicle.hpp"
 #include "Screen.hpp"
-
+//#include "stdlib.h"
 using namespace std;
 
 //The window we'll be rendering to
@@ -94,7 +94,7 @@ bool loadMedia()
 	gHelloWorld = SDL_LoadBMP("C:/Users/Daniela/Desktop/DHD/MainScreen.bmp");
 	if (gHelloWorld == NULL)
 	{
-		printf("Unable to load image %s! SDL Error: %s\n", SDL_GetError());
+		printf("Unable to load image! SDL Error: %s\n", SDL_GetError());
 		success = false;
 	}
 

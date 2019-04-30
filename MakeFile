@@ -45,10 +45,10 @@ Screen.o: Screen.cpp Screen.hpp MainMenu.hpp LevelSelect.hpp CharacterSelect.hpp
 Map.o: Map.cpp Map.hpp PlayerOne.hpp PlayerTwo.hpp
 	$(CC) -c Map.cpp
 
-PlayerOne.o: PlayerOne.cpp PlayerOne.hpp PowerUp.hpp 
+PlayerOne.o: PlayerOne.cpp PlayerOne.hpp PowerUp.hpp Vehicle.hpp
 	$(CC) -c PlayerOne.cpp
 
-PlayerTwo.o: PlayerTwo.cpp PlayerTwo.hpp PowerUp.hpp 
+PlayerTwo.o: PlayerTwo.cpp PlayerTwo.hpp PowerUp.hpp Vehicle.hpp
 	$(CC) -c PlayerTwo.cpp
 
 PowerUp.o: PowerUp.cpp PowerUp.hpp

@@ -2,10 +2,15 @@
 
 #ifdef __APPLE__
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
+#include <iostream>
 #else
 #include <SDL.h>
 #endif
 #include "string"
+#include "MainMenu.hpp"
+#include "LevelSelect.hpp"
+#include "CharacterSelect.hpp"
 using namespace std;
 //controls buffs and debuffs in game
 class Screen
