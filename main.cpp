@@ -6,7 +6,7 @@
 #include <SDL.h>
 #endif
 
-#undef main //maybe needs to go above?
+//#undef main //maybe needs to go above?
 #include "string"
 #include "CharacterSelect.hpp"
 #include "EndScreen.hpp"
@@ -91,7 +91,7 @@ bool loadMedia()
 	bool success = true;
 
 	//Load splash image
-	gHelloWorld = SDL_LoadBMP("../pictures/main.png");
+	gHelloWorld = SDL_LoadBMP("pictures/main.bmp");
 	if (gHelloWorld == NULL)
 	{
 		printf("Unable to load image! SDL Error: %s\n", SDL_GetError());
@@ -174,7 +174,7 @@ int main(int argc, const char* argv[])
 
 
 					//Apply the image stretched
-					gStretchedSurface = loadSurface("../pictures/main.png");
+					gStretchedSurface = loadSurface("pictures/main.bmp");
 
 					Screen* screen = new Screen(gStretchedSurface, gScreenSurface, stretchRect);
 
