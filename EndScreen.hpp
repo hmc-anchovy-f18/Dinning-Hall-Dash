@@ -8,6 +8,8 @@
 #include <SDL.h>
 #endif
 
+#include <string>
+
 class EndScreen
 {
 private:
