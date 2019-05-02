@@ -91,7 +91,7 @@ bool loadMedia()
 	bool success = true;
 
 	//Load splash image
-	gHelloWorld = SDL_LoadBMP("C:/Users/Daniela/Desktop/DHD/MainScreen.bmp");
+	gHelloWorld = SDL_LoadBMP("../pictures/main.png");
 	if (gHelloWorld == NULL)
 	{
 		printf("Unable to load image! SDL Error: %s\n", SDL_GetError());
@@ -174,7 +174,7 @@ int main(int argc, const char* argv[])
 
 
 					//Apply the image stretched
-					gStretchedSurface = loadSurface("C:/Users/Daniela/Desktop/DHD/MainScreen.bmp");
+					gStretchedSurface = loadSurface("../pictures/main.png");
 
 					Screen* screen = new Screen(gStretchedSurface, gScreenSurface, stretchRect);
 
