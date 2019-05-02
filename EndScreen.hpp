@@ -12,7 +12,6 @@ class EndScreen
 {
 private:
 	//Attributes
-
 	string endGameText;
 
 public:

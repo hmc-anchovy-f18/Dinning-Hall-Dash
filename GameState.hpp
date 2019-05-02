@@ -25,7 +25,6 @@ private:
 	int p2Loc;
 	bool end;
 
-
 public:
 	void updateName(int);
 	void updateScore(int, int);
