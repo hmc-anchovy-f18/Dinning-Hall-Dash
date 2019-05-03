@@ -67,12 +67,6 @@ void close();
 //Loads individual image
 SDL_Surface* loadSurface( std::string path );
 
-//The window we'll be rendering to
-SDL_Window* gWindow = NULL;
-    
-//The surface contained by the window
-SDL_Surface* gScreenSurface = NULL;
-
 //The images that correspond to a keypress
 SDL_Surface* gKeyPressSurfaces[ KEY_PRESS_SURFACE_TOTAL ];
 
@@ -115,32 +109,13 @@ bool init()
 	return success;
 }
 
-<<<<<<< HEAD
-
-// bool loadMedia()
-// {
-// 	//Loading success flag
-// 	bool success = true;
-
-// 	//Load splash image
-// 	gHelloWorld = SDL_LoadBMP("pictures/main.bmp");
-
-// 	if (gHelloWorld == NULL)
-// 	{
-// 		printf("Unable to load image! SDL Error: %s\n", SDL_GetError());
-// 		success = false;
-// 	}
-
-// 	return success;
-// }
-=======
 bool loadMedia()
 {
     //Loading success flag
     bool success = true;
 
     //Load default surface
-    gKeyPressSurfaces[ KEY_PRESS_SURFACE_DEFAULT ] = loadSurface( "04_key_presses/press.bmp" );
+    gKeyPressSurfaces[ KEY_PRESS_SURFACE_DEFAULT ] = loadSurface( "pictures/start.png" );
     if( gKeyPressSurfaces[ KEY_PRESS_SURFACE_DEFAULT ] == NULL )
     {
         printf( "Failed to load default image!\n" );
@@ -148,7 +123,7 @@ bool loadMedia()
     }
 
     //Load up surface
-    gKeyPressSurfaces[ KEY_PRESS_SURFACE_UP ] = loadSurface( "04_key_presses/up.bmp" );
+    gKeyPressSurfaces[ KEY_PRESS_SURFACE_UP ] = loadSurface( "pictures/start.png" );
     if( gKeyPressSurfaces[ KEY_PRESS_SURFACE_UP ] == NULL )
     {
         printf( "Failed to load up image!\n" );
@@ -156,7 +131,7 @@ bool loadMedia()
     }
 
     //Load down surface
-    gKeyPressSurfaces[ KEY_PRESS_SURFACE_DOWN ] = loadSurface( "04_key_presses/down.bmp" );
+    gKeyPressSurfaces[ KEY_PRESS_SURFACE_DOWN ] = loadSurface( "pictures/about.png" );
     if( gKeyPressSurfaces[ KEY_PRESS_SURFACE_DOWN ] == NULL )
     {
         printf( "Failed to load down image!\n" );
@@ -181,7 +156,6 @@ bool loadMedia()
 
     return success;
 }
->>>>>>> 44200e2b83389c90e0b95c3d07f66f5baea0343e
 
 // bool loadMedia()
 // {
@@ -200,7 +174,6 @@ bool loadMedia()
 
 void close()
 {
-<<<<<<< HEAD
 	// //Deallocate surface
 	// SDL_FreeSurface(gHelloWorld);
 	// gHelloWorld = NULL;
@@ -208,12 +181,10 @@ void close()
 	// //Destroy window
 	// SDL_DestroyWindow(gWindow);
 	// gWindow = NULL;
-=======
 	std::cout << "In close.\n";
 	//Deallocate surface
 	SDL_FreeSurface(gHelloWorld);
 	gHelloWorld = NULL;
->>>>>>> 44200e2b83389c90e0b95c3d07f66f5baea0343e
 
 	// //Quit SDL subsystems
 	// SDL_Quit();

@@ -9,7 +9,10 @@
 #include <SDL.h>
 #endif
 
+#include <string>
 #include "Screen.hpp"
+
+using namespace std;
 
 class MainMenu
 {

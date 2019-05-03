@@ -7,7 +7,7 @@
 #else
 #include <SDL.h>
 #endif
-#include "string"
+#include <string>
 #include "MainMenu.hpp"
 #include "LevelSelect.hpp"
 #include "CharacterSelect.hpp"
