@@ -67,16 +67,10 @@ bool loadMedia();
 SDL_Surface *IMG_Load(const char *file);
 
 //Frees media and shuts down SDL
-void close();
+int close();
 
 //Loads individual image
 SDL_Surface* loadSurface( std::string path );
-
-//The window we'll be rendering to
-SDL_Window* gWindow = NULL;
-    
-//The surface contained by the window
-SDL_Surface* gScreenSurface = NULL;
 
 //The images that correspond to a keypress
 SDL_Surface* gKeyPressSurfaces[ KEY_PRESS_SURFACE_TOTAL ];
