@@ -165,7 +165,7 @@ int main(int argc, const char* argv[])
         0, &window, &renderer
     );
     IMG_Init(IMG_INIT_PNG);
-    texture = IMG_LoadTexture(renderer, "pictures/main.bmp");
+    texture = IMG_LoadTexture(renderer, "pictures/main.png");
     while (1) {
         SDL_RenderCopy(renderer, texture, NULL, NULL);
         SDL_RenderPresent(renderer);
@@ -178,6 +178,7 @@ int main(int argc, const char* argv[])
     SDL_DestroyWindow(window);
     SDL_Quit();
     return EXIT_SUCCESS;
+
 
 	//Start up SDL and create window
 	if (!init())
