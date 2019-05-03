@@ -46,6 +46,9 @@ bool init();
 //Loads media
 bool loadMedia();
 
+//load media PART 2
+SDL_Surface *IMG_Load(const char *file);
+
 //Frees media and shuts down SDL
 void close();
 
@@ -85,35 +88,43 @@ bool init()
 	return success;
 }
 
-bool loadMedia()
-{
-	//Loading success flag
-	bool success = true;
 
-	//Load splash image
-	gHelloWorld = SDL_LoadBMP("pictures/main.bmp");
-	if (gHelloWorld == NULL)
-	{
-		printf("Unable to load image! SDL Error: %s\n", SDL_GetError());
-		success = false;
-	}
+// bool loadMedia()
+// {
+// 	//Loading success flag
+// 	bool success = true;
 
-	return success;
-}
+// 	//Load splash image
+// 	gHelloWorld = SDL_LoadBMP("pictures/main.bmp");
+
+// 	if (gHelloWorld == NULL)
+// 	{
+// 		printf("Unable to load image! SDL Error: %s\n", SDL_GetError());
+// 		success = false;
+// 	}
+
+// 	return success;
+// }
 
 void close()
 {
-	//Deallocate surface
-	SDL_FreeSurface(gHelloWorld);
-	gHelloWorld = NULL;
+	// //Deallocate surface
+	// SDL_FreeSurface(gHelloWorld);
+	// gHelloWorld = NULL;
 
-	//Destroy window
-	SDL_DestroyWindow(gWindow);
-	gWindow = NULL;
+	// //Destroy window
+	// SDL_DestroyWindow(gWindow);
+	// gWindow = NULL;
 
-	//Quit SDL subsystems
-	SDL_Quit();
+	// //Quit SDL subsystems
+	// SDL_Quit();
+
 }
+
+
+
+
+
 
 SDL_Surface* loadSurface(std::string path)
 {
@@ -143,6 +154,31 @@ SDL_Surface* loadSurface(std::string path)
 
 int main(int argc, const char* argv[])
 {
+	SDL_Event event;
+    SDL_Renderer *renderer = NULL;
+    SDL_Texture *texture = NULL;
+    SDL_Window *window = NULL;
+
+    SDL_Init(SDL_INIT_TIMER | SDL_INIT_VIDEO);
+    SDL_CreateWindowAndRenderer(
+        500, 500,
+        0, &window, &renderer
+    );
+    IMG_Init(IMG_INIT_PNG);
+    texture = IMG_LoadTexture(renderer, "pictures/main.bmp");
+    while (1) {
+        SDL_RenderCopy(renderer, texture, NULL, NULL);
+        SDL_RenderPresent(renderer);
+        if (SDL_PollEvent(&event) && event.type == SDL_QUIT)
+            break;
+    }
+    SDL_DestroyTexture(texture);
+    IMG_Quit();
+    SDL_DestroyRenderer(renderer);
+    SDL_DestroyWindow(window);
+    SDL_Quit();
+    return EXIT_SUCCESS;
+
 	//Start up SDL and create window
 	if (!init())
 	{
