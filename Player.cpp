@@ -15,11 +15,32 @@ Player::Player()
     this->viewport.h = Height;
 }
 
-Player::Player(string s, Vehicle v, int x, int y, int w, int h)
-    :name(s), ride(v)
+Player::Player(int x, int y, int w, int h)
 {   
     this->viewport.x = x;
     this->viewport.y = y;
     this->viewport.w = w;
     this->viewport.h = h;
+}
+
+Player::Player(string s, int x, int y, int w, int h)
+    :name(s)
+{   
+    this->viewport.x = x;
+    this->viewport.y = y;
+    this->viewport.w = w;
+    this->viewport.h = h;
+}
+
+int Player::getX(){
+    return this->viewport.x;
+}
+
+int Player::getY(){
+    return this->viewport.y;
+}
+
+void Player::move(int x, int y){
+    this->viewport.x = x;
+    this->viewport.y = y;
 }
