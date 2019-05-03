@@ -215,11 +215,6 @@ int close()
 
 }
 
-
-
-
-
-
 SDL_Surface* loadSurface(std::string path)
 {
 	//The final optimized image
@@ -248,11 +243,6 @@ SDL_Surface* loadSurface(std::string path)
 
 int main(int argc, const char* argv[])
 {
-	
-
-	
-
-
 	//Start up SDL and create window
 	if (!init())
 	{
