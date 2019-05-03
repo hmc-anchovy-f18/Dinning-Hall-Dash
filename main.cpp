@@ -142,9 +142,6 @@ bool loadMedia()
     return success;
 }
 
-
-
-
 SDL_Texture* loadTexture( std::string path )
 {
     //The final texture
@@ -169,7 +166,6 @@ SDL_Texture* loadTexture( std::string path )
         //Get rid of old loaded surface
         SDL_FreeSurface( loadedSurface );
     }
-
     return newTexture;
 }
 

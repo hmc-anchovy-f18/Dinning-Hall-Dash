@@ -8,8 +8,8 @@
 #include <SDL.h>
 #endif
 
-#include "PlayerOne.hpp"
-#include "PlayerTwo.hpp"
+#include "Player.hpp"
+
 
 class Map
 {

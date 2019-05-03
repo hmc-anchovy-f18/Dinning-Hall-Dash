@@ -19,7 +19,7 @@ private:
 	string name;
 	Vehicle ride;
 	PowerUp power;
-	SDL_Rect Viewport;
+	SDL_Rect viewport;
 
 public:
 	//Constructor
