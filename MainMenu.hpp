@@ -15,8 +15,8 @@ class MainMenu
 {
 private:
 	//Attributes
-    bool start;
-    bool instructions;
+	int index;
+	string pictures[4];
 
 public:
    // LevelSelect level();
@@ -27,4 +27,6 @@ public:
 	//Destructor
 	~MainMenu();
 	//Methods
+	string nextPicture();
+	string prevPicture();
 };
