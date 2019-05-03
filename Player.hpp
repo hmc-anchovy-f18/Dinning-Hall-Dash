@@ -24,12 +24,12 @@ private:
 public:
 	//Constructor
 	Player();
+    Player(string, Vehicle, int, int, int, int);
 	//Destructor
 	~Player();
 	//Methods
 	//get and set player location
 	int getX();
 	int getY();
-	void setX(int);
-	void setY(int);
+	void move(int, int);
 };
