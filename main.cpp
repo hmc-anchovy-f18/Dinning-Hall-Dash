@@ -92,6 +92,9 @@ SDL_Surface* gKeyPressSurfaces[ KEY_PRESS_SURFACE_TOTAL ];
 //Current displayed image
 SDL_Surface* gCurrentSurface = NULL;
 
+
+MainMenu mainMenuObject;
+
 bool init()
 {
 	//Initialization flag
@@ -151,7 +154,36 @@ bool loadMedia()
     //Loading success flag
     bool success = true;
 
-   
+	string pic = mainMenuObject.getPic();
+
+	
+	
+
+    //Load default surface
+    gKeyPressSurfaces[ KEY_PRESS_SURFACE_DEFAULT ] = loadSurface("pictures/start.png");
+    if( gKeyPressSurfaces [ KEY_PRESS_SURFACE_DEFAULT ] == NULL )
+    {
+        printf( "Failed to load default image!\n" );
+        success = false;
+    }
+
+    //Load up surface
+    gKeyPressSurfaces[ KEY_PRESS_SURFACE_UP ] = loadSurface( mainMenuObject.prevPicture().getPic());
+    if( gKeyPressSurfaces[ KEY_PRESS_SURFACE_UP ] == NULL )
+    {
+        printf( "Failed to load up image!\n" );
+        success = false;
+    }
+
+    //Load down surface
+    gKeyPressSurfaces[ KEY_PRESS_SURFACE_DOWN ] = loadSurface(mainMenuObject.nextPicture().getPic() );
+    if( gKeyPressSurfaces[ KEY_PRESS_SURFACE_DOWN ] == NULL )
+    {
+        printf( "Failed to load down image!\n" );
+        success = false;
+    }
+
+ 
 
     return success;
 }
