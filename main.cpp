@@ -38,6 +38,11 @@ SDL_Surface* gHelloWorld = NULL;
 
 SDL_Surface* gStretchedSurface = NULL;
 
+SDL_Event event;
+SDL_Renderer *renderer = NULL;
+SDL_Texture *texture = NULL;
+SDL_Window *window = NULL;
+
 int Width, Height;
 
 //Key press surfaces constants
@@ -66,6 +71,12 @@ void close();
 
 //Loads individual image
 SDL_Surface* loadSurface( std::string path );
+
+//The window we'll be rendering to
+SDL_Window* gWindow = NULL;
+    
+//The surface contained by the window
+SDL_Surface* gScreenSurface = NULL;
 
 //The images that correspond to a keypress
 SDL_Surface* gKeyPressSurfaces[ KEY_PRESS_SURFACE_TOTAL ];
@@ -115,7 +126,7 @@ bool loadMedia()
     bool success = true;
 
     //Load default surface
-    gKeyPressSurfaces[ KEY_PRESS_SURFACE_DEFAULT ] = loadSurface( "pictures/start.png" );
+    gKeyPressSurfaces[ KEY_PRESS_SURFACE_DEFAULT ] = loadSurface( "04_key_presses/press.bmp" );
     if( gKeyPressSurfaces[ KEY_PRESS_SURFACE_DEFAULT ] == NULL )
     {
         printf( "Failed to load default image!\n" );
@@ -123,7 +134,7 @@ bool loadMedia()
     }
 
     //Load up surface
-    gKeyPressSurfaces[ KEY_PRESS_SURFACE_UP ] = loadSurface( "pictures/start.png" );
+    gKeyPressSurfaces[ KEY_PRESS_SURFACE_UP ] = loadSurface( "04_key_presses/up.bmp" );
     if( gKeyPressSurfaces[ KEY_PRESS_SURFACE_UP ] == NULL )
     {
         printf( "Failed to load up image!\n" );
@@ -131,7 +142,7 @@ bool loadMedia()
     }
 
     //Load down surface
-    gKeyPressSurfaces[ KEY_PRESS_SURFACE_DOWN ] = loadSurface( "pictures/about.png" );
+    gKeyPressSurfaces[ KEY_PRESS_SURFACE_DOWN ] = loadSurface( "04_key_presses/down.bmp" );
     if( gKeyPressSurfaces[ KEY_PRESS_SURFACE_DOWN ] == NULL )
     {
         printf( "Failed to load down image!\n" );
@@ -172,7 +183,7 @@ bool loadMedia()
 // 	return success;
 // }
 
-void close()
+int close()
 {
 	// //Deallocate surface
 	// SDL_FreeSurface(gHelloWorld);
@@ -181,13 +192,21 @@ void close()
 	// //Destroy window
 	// SDL_DestroyWindow(gWindow);
 	// gWindow = NULL;
-	std::cout << "In close.\n";
+	//std::cout << "In close.\n";
 	//Deallocate surface
-	SDL_FreeSurface(gHelloWorld);
-	gHelloWorld = NULL;
+	//SDL_FreeSurface(gHelloWorld);
+	//gHelloWorld = NULL;
 
 	// //Quit SDL subsystems
 	// SDL_Quit();
+
+	//close
+    SDL_DestroyTexture(texture);
+    IMG_Quit();
+    SDL_DestroyRenderer(renderer);
+    SDL_DestroyWindow(window);
+    SDL_Quit();
+    return EXIT_SUCCESS;
 
 }
 
@@ -224,30 +243,23 @@ SDL_Surface* loadSurface(std::string path)
 
 int main(int argc, const char* argv[])
 {
-	SDL_Event event;
-    SDL_Renderer *renderer = NULL;
-    SDL_Texture *texture = NULL;
-    SDL_Window *window = NULL;
+	
 
     SDL_Init(SDL_INIT_TIMER | SDL_INIT_VIDEO);
+
     SDL_CreateWindowAndRenderer(
-        500, 500,
-        0, &window, &renderer
-    );
+        Width, Height, 0, &window, &renderer);
     IMG_Init(IMG_INIT_PNG);
-    texture = IMG_LoadTexture(renderer, "pictures/main.png");
+    texture = IMG_LoadTexture(renderer, "../pictures/main.png");
+
     while (1) {
         SDL_RenderCopy(renderer, texture, NULL, NULL);
         SDL_RenderPresent(renderer);
         if (SDL_PollEvent(&event) && event.type == SDL_QUIT)
             break;
     }
-    SDL_DestroyTexture(texture);
-    IMG_Quit();
-    SDL_DestroyRenderer(renderer);
-    SDL_DestroyWindow(window);
-    SDL_Quit();
-    return EXIT_SUCCESS;
+
+	
 
 
 	//Start up SDL and create window
