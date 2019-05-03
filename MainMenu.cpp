@@ -40,3 +40,7 @@ string MainMenu::prevPicture(){
 	}
 	return pictures[index];
 }
+
+string MainMenu::getPic(){
+	return pictures[index];
+}
