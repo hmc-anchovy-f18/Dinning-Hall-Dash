@@ -15,21 +15,21 @@ class Player
 {
 private:
 	//Attributes
-	int x, y; //player location; update to Point later?
 	string name;
-	Vehicle ride;
-	PowerUp power;
+	//Vehicle ride;
+	//PowerUp power;
 	SDL_Rect viewport;
 
 public:
 	//Constructor
 	Player();
+    Player(int, int, int, int);
+    Player(string, int, int, int, int);
 	//Destructor
 	~Player();
 	//Methods
 	//get and set player location
 	int getX();
-	int getY();
-	void setX(int);
-	void setY(int);
+    int getY();
+	void move(int, int);
 };
