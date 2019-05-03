@@ -1,5 +1,7 @@
 #ifdef __APPLE__
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
+#include <iostream>
 #else
 #include <SDL.h>
 #endif

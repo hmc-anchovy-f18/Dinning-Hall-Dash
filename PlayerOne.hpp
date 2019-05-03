@@ -11,7 +11,7 @@
 #include "Vehicle.hpp"
 #include "PowerUp.hpp"
 
-class PlayerOne
+class Player
 {
 private:
 	//Attributes
@@ -19,12 +19,13 @@ private:
 	string name;
 	Vehicle ride;
 	PowerUp power;
+	SDL_Rect Viewport;
 
 public:
 	//Constructor
-	PlayerOne();
+	Player();
 	//Destructor
-	~PlayerOne();
+	~Player();
 	//Methods
 	//get and set player location
 	int getX();
