@@ -32,5 +32,4 @@ public:
 	//Methods
 	string nextPicture();
 	string prevPicture();
-	string getPic();
 };

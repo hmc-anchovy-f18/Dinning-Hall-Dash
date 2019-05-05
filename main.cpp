@@ -154,10 +154,8 @@ bool loadMedia()
     //Loading success flag
     bool success = true;
 
-	string pic = mainMenuObject.getPic();
-
-	
-	
+	string nextpic = mainMenuObject.nextPicture();
+    string prevpic = mainMenuObject.prevPicture();
 
     //Load default surface
     gKeyPressSurfaces[ KEY_PRESS_SURFACE_DEFAULT ] = loadSurface("pictures/start.png");
@@ -168,7 +166,7 @@ bool loadMedia()
     }
 
     //Load up surface
-    gKeyPressSurfaces[ KEY_PRESS_SURFACE_UP ] = loadSurface( mainMenuObject.prevPicture().getPic());
+    gKeyPressSurfaces[ KEY_PRESS_SURFACE_UP ] = loadSurface( mainMenuObject.prevPicture());
     if( gKeyPressSurfaces[ KEY_PRESS_SURFACE_UP ] == NULL )
     {
         printf( "Failed to load up image!\n" );
@@ -176,7 +174,7 @@ bool loadMedia()
     }
 
     //Load down surface
-    gKeyPressSurfaces[ KEY_PRESS_SURFACE_DOWN ] = loadSurface(mainMenuObject.nextPicture().getPic() );
+    gKeyPressSurfaces[ KEY_PRESS_SURFACE_DOWN ] = loadSurface(mainMenuObject.nextPicture());
     if( gKeyPressSurfaces[ KEY_PRESS_SURFACE_DOWN ] == NULL )
     {
         printf( "Failed to load down image!\n" );
@@ -283,38 +281,104 @@ SDL_Surface* loadSurface(std::string path)
 }
 
 int main(int argc, const char* argv[])
-
 {
+	//Start up SDL and create window
+	if (!init())
+	{
+		printf("Failed to initialize!\n");
+	}
+	else
+	{
+		//Load media
+		if (!loadMedia())
+		{
+			printf("Failed to load media!\n");
+		}
+		else
+		{
+			bool quit = false;  //Main loop controller
+			SDL_Event e;
+			SDL_Rect stretchRect;
+			stretchRect.x = 0;
+			stretchRect.y = 0;
+			stretchRect.w = Width;
+			stretchRect.h = Height;
+			int count = 0;
+			while (!quit) {
+				//Handle events on queue
+				while (!SDL_PollEvent(&e)) {
+					// != 0
+					//User requests quit
+					if (e.type == SDL_QUIT) {
+						std::cout << "Setting quit to true.\n";
+						quit = true;
+						cout << quit << endl;
+					}
+					//User presses a key
+                    else if( e.type == SDL_KEYDOWN )
+                    {
+                        //Select surfaces based on key press
+                        switch( e.key.keysym.sym )
+                        {
+                            case SDLK_UP:
+                            gCurrentSurface = gKeyPressSurfaces[ KEY_PRESS_SURFACE_UP ];
+                            break;
 
+                            case SDLK_DOWN:
+                            gCurrentSurface = gKeyPressSurfaces[ KEY_PRESS_SURFACE_DOWN ];
+                            break;
 
-    SDL_Event event;
-    SDL_Renderer *renderer = NULL;
-    SDL_Texture *texture = NULL;
-    SDL_Window *window = NULL;
+                            // case SDLK_LEFT:
+                            // gCurrentSurface = gKeyPressSurfaces[ KEY_PRESS_SURFACE_LEFT ];
+                            // break;
 
-    SDL_Init(SDL_INIT_TIMER | SDL_INIT_VIDEO);
+                            // case SDLK_RIGHT:
+                            // gCurrentSurface = gKeyPressSurfaces[ KEY_PRESS_SURFACE_RIGHT ];
+                            // break;
 
-    SDL_CreateWindowAndRenderer(Width, Height,0, &window, &renderer);
+                            default:
+                            gCurrentSurface = gKeyPressSurfaces[ KEY_PRESS_SURFACE_DEFAULT ];
+                            break;
+                        }
+                    }
+					 //Clear screen
+               		SDL_RenderClear( gRenderer );
 
-    IMG_Init(IMG_INIT_PNG);
+                	//Render texture to screen
+                	SDL_RenderCopy( gRenderer, gTexture, NULL, NULL );
 
-    texture = IMG_LoadTexture(renderer, "pictures/start.png");
+                	//Update screen
+                	SDL_RenderPresent( gRenderer );
+            
+					//Apply the image stretched
+					//gStretchedSurface = loadSurface("pictures/main.bmp");
 
-    while (1) {
-        SDL_RenderCopy(renderer, texture, NULL, NULL);
-        SDL_RenderPresent(renderer);
-        if (SDL_PollEvent(&event) && event.type == SDL_QUIT)
-            break;}
+					//Screen* screen = new Screen(gStretchedSurface, gScreenSurface, stretchRect);
 
+					//screen->renderScreen();
 
-    SDL_DestroyTexture(texture);
-    IMG_Quit();
-    SDL_DestroyRenderer(renderer);
-    SDL_DestroyWindow(window);
-    SDL_Quit();
+					//SDL_BlitScaled(gStretchedSurface, NULL, gScreenSurface, &stretchRect);
 
-    return EXIT_SUCCESS;
+					//Apply the image without stretching
+					//SDL_BlitSurface(gHelloWorld, NULL, gScreenSurface, NULL);
 
+					//Update the surface
+					//SDL_UpdateWindowSurface(gWindow);
+
+					//Wait two seconds
+					SDL_Delay(2000);
+					count++;
+					std::cout << "In the game loop: " << count << "\n";
+					cout << quit << endl;
+				}
+			}
+		}
+	}
+
+	//Free resources and close SDL
+	close();
+
+	return 0;
 }
 
 
