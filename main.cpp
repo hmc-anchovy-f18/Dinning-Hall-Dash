@@ -41,8 +41,6 @@ SDL_Surface* gStretchedSurface = NULL;
 //The window renderer
 SDL_Renderer* gRenderer = NULL;
 
- 
-
 //Loads individual image as texture
 SDL_Texture* loadTexture( std::string path );
 
@@ -70,7 +68,6 @@ enum KeyPressSurfaces
     KEY_PRESS_SURFACE_TOTAL
 };
 
-
 //Starts up SDL and creates window
 bool init();
 
@@ -91,7 +88,6 @@ SDL_Surface* gKeyPressSurfaces[ KEY_PRESS_SURFACE_TOTAL ];
 
 //Current displayed image
 SDL_Surface* gCurrentSurface = NULL;
-
 
 MainMenu mainMenuObject;
 
@@ -145,7 +141,6 @@ bool init()
             }
         }
 	}
-
 	return success;
 }
 
@@ -180,9 +175,6 @@ bool loadMedia()
         printf( "Failed to load down image!\n" );
         success = false;
     }
-
- 
-
     return success;
 }
 
@@ -192,8 +184,8 @@ SDL_Texture* loadTexture( std::string path )
     SDL_Texture* newTexture = NULL;
 
     //Load image at specified path
-
     SDL_Surface* loadedSurface = IMG_Load( path.c_str() );
+    
     if( loadedSurface == NULL )
     {
         printf( "Unable to load image %s! SDL_image Error: %s\n", path.c_str(), IMG_GetError() );
